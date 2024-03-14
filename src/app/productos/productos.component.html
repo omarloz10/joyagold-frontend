@@ -1,0 +1,70 @@
+<div class="table-responsive">
+  <table class="table table-light">
+    <thead>
+      <tr>
+        <th>Tipo</th>
+        <th>Nombre</th>
+        <th>Material</th>
+        <th>Pureza</th>
+        <th>Color</th>
+        <th>Talla</th>
+        <th>Peso</th>
+        <th>Precio</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (producto of productos; track producto.id) {
+      <tr>
+        <td>{{ producto.tipo.nombre }}</td>
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.material.nombre }}</td>
+        <td>{{ producto.pureza.nombre }}</td>
+        <td>{{ producto.color }}</td>
+        <td>{{ producto.talla.nombre }}</td>
+        <td>{{ producto.peso }}</td>
+        <td>${{ producto.precio }}</td>
+        <td>
+          <button
+            class="mb-1 mx-1 btn btn-primary"
+            (click)="mostrarDetalles(producto.id)"
+            data-bs-toggle="modal"
+            data-bs-target="#modalDetallesId"
+          >
+            Detalles
+          </button>
+          <button
+            class="mb-1 mx-1 btn btn-warning"
+            (click)="mostrarDetalles(producto.id)"
+            data-bs-toggle="modal"
+            data-bs-target="#modalEditarId"
+          >
+            Editar
+          </button>
+          <button
+            class="mb-1 mx-1 btn btn-danger"
+            (click)="borrarProducto(producto.id)"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+      } @empty {
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>No hay registros de productos</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<app-detalles [productoPorId]="productoPorId" />
+<app-editar [productoPorId]="productoPorId" (objectEmitter)="modificarProducto($event)"/>

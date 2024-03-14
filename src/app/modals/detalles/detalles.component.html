@@ -1,0 +1,101 @@
+<div class="modal fade text-dark" id="modalDetallesId" tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitleId">Detalles del producto</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="" class="form-label">Tipo: </label>
+          <input
+            type="text"
+            class="form-control"
+            readonly
+            value="{{ productoPorId?.tipo.nombre }}"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label">Nombre: </label>
+          <input
+            type="text"
+            class="form-control"
+            readonly
+            value="{{ productoPorId?.nombre }}"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label">Material: </label>
+          <input
+            type="text"
+            class="form-control"
+            readonly
+            value="{{ productoPorId?.material.nombre }}"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label">Pureza: </label>
+          <input
+            type="text"
+            class="form-control"
+            readonly
+            value="{{ productoPorId?.pureza.nombre }}"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label">Color: </label>
+          <input
+            type="text"
+            class="form-control"
+            readonly
+            value="{{ productoPorId?.color }}"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label">Talla: </label>
+          <input
+            type="text"
+            class="form-control"
+            readonly
+            value="{{ productoPorId?.talla.nombre }}"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label">Peso: </label>
+          <input
+            type="text"
+            class="form-control"
+            readonly
+            value="{{ productoPorId?.peso }}"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label">Precio: </label>
+          <input
+            type="text"
+            class="form-control"
+            readonly
+            value="${{ productoPorId?.precio }}"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
